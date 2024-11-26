@@ -10,6 +10,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.7.0'
-    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.7.0'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.17.25'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.17.25'
 }

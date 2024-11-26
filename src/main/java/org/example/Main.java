@@ -14,7 +14,8 @@ import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.client.RestHighLevelClientBuilder;
+import org.elasticsearch.xcontent.XContentType;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -46,10 +47,13 @@ public class Main {
                 AuthScope.ANY,
                 new UsernamePasswordCredentials(username, password));
 
-        RestClientBuilder restClientBuilder = RestClient.builder(
+        RestClientBuilder builder = RestClient.builder(
                         new HttpHost(host, port, protocol))
                 .setHttpClientConfigCallback((h) -> h.setDefaultCredentialsProvider(credentialsProvider));
-        return new RestHighLevelClient(restClientBuilder);
+
+        return new RestHighLevelClientBuilder(builder.build())
+                .setApiCompatibilityMode(true)
+                .build();
     }
 
     public void testBulk(RestHighLevelClient client) throws Exception {
