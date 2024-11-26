@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.7.0'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.7.0'
+}
