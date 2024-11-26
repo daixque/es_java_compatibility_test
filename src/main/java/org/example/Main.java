@@ -47,11 +47,11 @@ public class Main {
                 AuthScope.ANY,
                 new UsernamePasswordCredentials(username, password));
 
-        RestClientBuilder builder = RestClient.builder(
+        RestClientBuilder restClientBuilder = RestClient.builder(
                         new HttpHost(host, port, protocol))
                 .setHttpClientConfigCallback((h) -> h.setDefaultCredentialsProvider(credentialsProvider));
 
-        return new RestHighLevelClientBuilder(builder.build())
+        return new RestHighLevelClientBuilder(restClientBuilder.build())
                 .setApiCompatibilityMode(true)
                 .build();
     }
